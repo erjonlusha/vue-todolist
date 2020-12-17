@@ -1,0 +1,30 @@
+h1{color: rgb(25, 25, 95);}
+li {
+    list-style: none;
+    font-style: italic;
+    font-size: large;
+    text-decoration:underline;
+}
+
+body{
+    max-width: 1200px;
+    margin: 200px auto;
+}
+#app{
+    background-color:rgba(0, 225, 101, 0.562);
+    border: 3px dotted darkblue;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 100px;
+}
+
+img{
+    margin: auto;
+    display: block;
+    width: 400px;
+}
+.suggerimento {
+    /* font: message-box; */
+    color: gray;
+}
+p.vuoto{ text-transform: uppercase;}

@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <title>To-do list</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <div id="app">
-    <input type="addlist" id="addlist" name="adlist" placeholder="Aggiungi alla lista" required>
-    <button>Aggiungi</button>
-    <div>ToDo List</div>
-    <ul >
-        <li v-if="!toDo.length">No item found</li>
-        <li v-if="toDo.length > 0" v-for="item in toDo" v-text="item"> {{ toDo }} </li>
-        <!-- <li v-for="item in toDo" v-text="item"></li> -->
+    <img src="assets/img/logo.png" alt="">
+    <input 
+        type="text" 
+        name="addlist" 
+        id="addlist" 
+        v-model="item" 
+        placeholder="Aggiungi alla lista" required
+        v-on:keyup.enter="addToList()">
+
+    <button @click="addToList">Aggiungi</button>
+    <h1>ToDo List</h1>
+    <ul v-if="toDo.length > 0">
+        <li  
+        
+            v-for="(item, index) in toDo" 
+            v-text="item"
+            @click="removeItem(index)">{{item}}, X</i>
+        </li>
     </ul>
+    <p class="vuoto" v-else="toDo.length > 0">Nothing to do</p>
+    <p class="suggerimento" >Per eliminare la task cliccaci sopra</p>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="assets/js/main.js"></script>
